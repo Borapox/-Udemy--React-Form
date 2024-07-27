@@ -1,19 +1,19 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './MyForm.css';
 
 const MyForm = () => {
   
-    const [name, setName] = useState(undefined)
-    const [email, setEmail] = useState(undefined);
+    const [name, setName] = useState("")
+    const [email, setEmail] = useState("");
   
-    const handleName = (e) => {
+    const handleName: React.ChangeEventHandler<HTMLInputElement> = (e) => {
       setName(e.target.value)
     }
-    const handleEmail = (e) => {
+    const handleEmail: React.ChangeEventHandler<HTMLInputElement> = (e) => {
       setEmail(e.target.value)
     }
   // Envio de Formulário - Submit
-
+    
   return (
     // Criação do Formulário
     <div className='w-[300px] m-auto text-left'>
@@ -22,9 +22,12 @@ const MyForm = () => {
       <form onSubmit={(e) => {
         e.preventDefault();
         
-        const infoUser = {
-
-        }
+        console.log(
+          {
+            name : name,
+            email : email
+          }
+        )
       }}>
 
         <div className='mb-3'>
@@ -69,7 +72,6 @@ const MyForm = () => {
           />
 
       </form>
-
     </div>
   )
 }
