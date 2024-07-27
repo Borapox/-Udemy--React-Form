@@ -1,4 +1,5 @@
-import React from 'react';
+// Supports weights 200-800
+import '@fontsource-variable/dosis';
 
 const App = () => {
   return (
