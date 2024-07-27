@@ -4,7 +4,7 @@ import MyForm from './components/MyForm';
 
 const App = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#1e293b] to-[#2d4258] flex items-center justify-center">
+    <div className="min-h-screen bg-gradient-to-b from-[#1e293b] to-[#2d4258] flex items-center justify-center flex-col">
       
       <div className='flex flex-col'>
         <h1 className="text-white text-4xl">
