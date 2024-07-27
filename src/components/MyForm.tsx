@@ -5,6 +5,7 @@ const MyForm = () => {
   
     const [name, setName] = useState("")
     const [email, setEmail] = useState("");
+    const [bio, setBio] = useState("");
   
     const handleName: React.ChangeEventHandler<HTMLInputElement> = (e) => {
       setName(e.target.value)
@@ -12,23 +13,30 @@ const MyForm = () => {
     const handleEmail: React.ChangeEventHandler<HTMLInputElement> = (e) => {
       setEmail(e.target.value)
     }
-  // Envio de Formulário - Submit
+
     
-  return (
+    return (
     // Criação do Formulário
     <div className='w-[300px] m-auto text-left'>
       {/* Como realizar o envio de formulário via onSubmit */}
       
-      <form onSubmit={(e) => {
-        e.preventDefault();
+      <form onSubmit={(e) => { e.preventDefault()
+            console.log(
+              {
+                name : name,
+                email: email,
+                bio: bio
+
+              }
+            )
         
-        console.log(
-          {
-            name : name,
-            email : email
-          }
-        )
-      }}>
+        {/* Limpeza de Formulário */}
+        setName("");
+        setEmail("");
+        }}>
+
+
+        
 
         <div className='mb-3'>
           <label 
@@ -41,7 +49,7 @@ const MyForm = () => {
             type="text" 
             name='name'
             placeholder='Digite seu nome'
-            className='p-2 rounded-lg outline-none w-full'
+            className='py-3 px-4 rounded-lg outline-none w-full focus:bg-zinc-300 text-lg'
             onChange={handleName}
           />
           
@@ -57,17 +65,33 @@ const MyForm = () => {
 
           <input 
             type="email" 
-            name="" 
             placeholder='Digite seu e-mail'
-            className='p-2 rounded-lg outline-none w-full mb-2'
+            className='py-3 px-4  rounded-lg outline-none w-full mb-2 focus:bg-zinc-300 text-lg'
             onChange={handleEmail}
           />
         </label>
 
+        {/* TextArea */}
+        <label>
+          <span
+              className='text-xl text-zinc-400 mb-3'>
+              Mensagem:
+          </span>
+          <textarea
+            placeholder='Descrição do Usuário'
+            value={bio}
+            className=' outline-none border  border-[#1e293b] w-full rounded-lg py-3 px-4 text-[#2d4258] focus:bg-zinc-300 text-lg'
+            onChange={(e) => setBio(e.target.value)}
+          >
+
+          </textarea>
+        </label>
+        
+
           <input 
             type="submit" 
             value="Enviar" 
-            className='rounded p-2 border border-[#1e293b] w-full bg-[#2d4258] cursor-pointer text-xl text-zinc-400 hover:bg-[#1e293b] hover:border-[#496491]'
+            className='mt-3 rounded p-2 border border-[#1e293b] w-full bg-[#2d4258] cursor-pointer text-xl text-zinc-400 hover:bg-[#1e293b] hover:border-[#496491]'
 
           />
 
