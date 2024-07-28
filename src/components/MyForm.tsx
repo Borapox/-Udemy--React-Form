@@ -6,6 +6,7 @@ const MyForm = () => {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("");
     const [bio, setBio] = useState("");
+    const [role, setRole] = useState("");
   
     const handleName: React.ChangeEventHandler<HTMLInputElement> = (e) => {
       setName(e.target.value)
@@ -25,7 +26,8 @@ const MyForm = () => {
               {
                 name : name,
                 email: email,
-                bio: bio
+                bio: bio,
+                role: role
 
               }
             )
@@ -33,6 +35,7 @@ const MyForm = () => {
         {/* Limpeza de Formulário */}
         setName("");
         setEmail("");
+        setRole("");
         }}>
 
 
@@ -83,8 +86,22 @@ const MyForm = () => {
             className=' outline-none border  border-[#1e293b] w-full rounded-lg py-3 px-4 text-[#2d4258] focus:bg-zinc-300 text-lg'
             onChange={(e) => setBio(e.target.value)}
           >
-
           </textarea>
+        </label>
+
+        {/* Select */}
+        <label>
+          <span>Função no Select</span>
+          <select
+           name="role"
+           value = {role}
+           onChange={ (e) => setRole(e.target.value) }
+           className='w-full p-2 rounded-lg text-[#2d4258] outline-none focus:bg-zinc-300'
+            >
+            <option value="usuario">Usuário</option>
+            <option value="editor">Editor</option>
+            <option value="admin">Administrador</option>
+          </select>
         </label>
         
 
